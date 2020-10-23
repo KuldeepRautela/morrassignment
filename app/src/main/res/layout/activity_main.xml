@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_creditCardTextLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:textColorHint="@color/colorBlack"
+        app:boxStrokeColor="@color/colorBlack">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_creditCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Card Number"
+            android:inputType="number"
+            android:maxLength="16" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_dateTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:textColorHint="@color/colorBlack"
+            app:boxStrokeColor="@color/colorBlack"
+           >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="date"
+                android:maxLength="5"
+                android:hint="mm/yy" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_securityCodeTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:textColorHint="@color/colorBlack"
+            app:boxStrokeColor="@color/colorBlack"
+          >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_securityCode"
+                android:layout_width="match_parent"
+                android:maxLength="3"
+                android:inputType="number"
+                android:layout_height="match_parent"
+                android:hint="Security code" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_firstnameTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:textColorHint="@color/colorBlack"
+            app:boxStrokeColor="@color/colorBlack"
+  >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="First Name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_lastNameTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:textColorHint="@color/colorBlack"
+            app:boxStrokeColor="@color/colorBlack"
+          >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_lastName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Last Name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_bg"
+        android:onClick="onClick"
+        android:text="Submit Payment"
+        android:textAllCaps="true"
+        android:textColor="#ffffff" />
+</LinearLayout>

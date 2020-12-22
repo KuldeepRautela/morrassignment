@@ -3,6 +3,7 @@ package com.example.morr;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
     private TextInputLayout creditCardInputLayout, dateInputLayout, securityInputLayout, firstNameInputLayout, lastNameInputLayout;
     private TextInputEditText cardNumberEt, dateEt, securityEt, firstNameEt, lastNameEt;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Credit Card Input Exercise");
         initializeView();
     }
 
@@ -35,22 +37,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (!firstNameEt.getText().toString().isEmpty()) {
                         firstNameInputLayout.setError("");
                         if (!checkForNameErrors(firstNameEt.getText().toString()))
-                            firstNameInputLayout.setError("This Fileld should  only contain alphabets and spaces ");
+                            firstNameInputLayout.setError("This Field should  only contain alphabets and spaces ");
                         else {
                             firstNameInputLayout.setError("");
 
                             if (!lastNameEt.getText().toString().isEmpty()) {
                                 if (!checkForNameErrors(lastNameEt.getText().toString()))
-                                    lastNameInputLayout.setError("This Fileld should  only contain alphabets and space ");
+                                    lastNameInputLayout.setError("This Field should  only contain alphabets and space ");
                                 else {
                                     lastNameInputLayout.setError("");
-                                    checkForErrors();
+                                    luhnAlgorithmCheck();
                                 }
                             } else
                                 lastNameEt.setError("Field Emplty");
                             return;
                         }
-
                     } else {
                         firstNameInputLayout.setError("Field Emplty");
                         return;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void checkForErrors() {
+    private void luhnAlgorithmCheck() {
         // Luhn algorithm
         String cardNo = cardNumberEt.getText().toString();
         int sumOfOdd = 0, sumOfEven = 0;
@@ -104,12 +105,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lastNameEt = findViewById(R.id.id_lastName);
     }
 
-    private boolean checkForNameErrors(String name) {
-        Log.e("name is ", name);
+    private static boolean checkForNameErrors(String name) {
         for (int i = 0; i < name.length(); i++)
             if (!((name.charAt(i) == ' ') || (name.charAt(i) >= 65 && name.charAt(i) <= 90) || (name.charAt(i) >= 97 && name.charAt(i) <= 122)))
                 return false;
+        return true;
+    }
 
+    public static boolean checkRegistrationFields(String cardNumber,String date,String securityCode,String firstName,String lastName){
+      if(!(!cardNumber.isEmpty() && cardNumber.length()==16))
+          return false;
+        if(!(!date.isEmpty() && date.length()==5))
+            return false;
+        if(!(!securityCode.isEmpty() && securityCode.length()==3))
+            return false;
+        if(!(!firstName.isEmpty() && !checkForNameErrors(firstName)))
+            return false;
+        if(!(!lastName.isEmpty() && !checkForNameErrors(lastName)))
+            return false;
         return true;
     }
 }

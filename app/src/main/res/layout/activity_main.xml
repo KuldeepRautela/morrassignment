@@ -16,7 +16,7 @@
         android:layout_margin="5dp"
         android:orientation="vertical"
         android:textColorHint="@color/colorBlack"
-        app:boxStrokeColor="@color/colorBlack">
+        app:boxStrokeColor="@color/outlineColor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_creditCard"
@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:textColorHint="@color/colorBlack"
-            app:boxStrokeColor="@color/colorBlack"
+            app:boxStrokeColor="@color/outlineColor"
            >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -64,7 +64,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:textColorHint="@color/colorBlack"
-            app:boxStrokeColor="@color/colorBlack"
+            app:boxStrokeColor="@color/outlineColor"
           >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -92,7 +92,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:textColorHint="@color/colorBlack"
-            app:boxStrokeColor="@color/colorBlack"
+            app:boxStrokeColor="@color/outlineColor"
   >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -112,7 +112,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:textColorHint="@color/colorBlack"
-            app:boxStrokeColor="@color/colorBlack"
+            app:boxStrokeColor="@color/outlineColor"
           >
 
             <com.google.android.material.textfield.TextInputEditText
